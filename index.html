@@ -4,10 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fazer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
 </head>
 <body>
     
+    <div class="sideBar">
+        <div class="titlePage">
+            <img class="logo" src="images/logo.png" alt="logo">
+            <p></p>
+            <div class="titlePageIMG">
+                <img id="upperIMG" src="images/bell-badge.png" alt="notifications">
+                <img class="darkLightMode" id="upperIMG" src="images/light-mode.png" alt="dark mode">
+            </div>
+        </div>
+        <div class="sideBarContainer">
+            <div class="sideBarContent">
+                <div class="sideBarUpper">
+                    <div class="sideBarTags" id="Today">
+                        <img src="images/calendar-today.png" alt="" class="projectIcon" id="Today">
+                        <p id="Today">Today</p class="projectTextName">
+                    </div>
+                    <div id="All Tasks" class="sideBarTags">
+                        <img id="All Tasks" src="images/everything.png" alt="" class="projectIcon">
+                        <p id="All Tasks">All Tasks</p class="projectTextName">
+                    </div>
+                    <div id="Flagged" class="sideBarTags">
+                        <img id="Flagged" src="images/flag.png" alt="" class="projectIcon">
+                        <p id="Flagged">Flagged</p class="projectTextName">
+                    </div>
+                    <div id="Completed" class="sideBarTags">
+                        <img id="Completed" src="images/check-all.png" alt="" class="projectIcon">
+                        <p id="Completed">Completed</p class="projectTextName">
+                    </div>
+                    <div id="Deleted" class="sideBarTags">
+                        <img id="Deleted" src="images/delete-empty.png" alt="" class="projectIcon">
+                        <p id="Deleted">Deleted</p >
+                    </div>
+                </div>
+            </div>
+            <div class="sideBarLowerContent">
+                <div class="projects">
+
+                </div>
+                <div class="addProjects" id="lightMode">
+                    <img src="images/plus.png" alt="add project">
+                    <p>Add Project</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="mainContainer">
+        <div class="header">
+            <h1 id="headerText">Today</h1>
+        </div>
+        <div class="taskContainer">
+
+        </div>
+        <div class="addTaskContainer" id="" data-id="lightMode2">
+            <img class="addTaskTagImg" src="images/plus.png" alt="add project">
+            <p class="addTaskTagText">Add Task</p>
+        </div>
+    </div>
+
+
     <script src="main.js"></script>
 </body>
 </html>

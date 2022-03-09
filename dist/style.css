@@ -1,0 +1,530 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(19, 19, 19);
+    display: flex;
+    margin: auto;
+    height: 100vh;
+    max-width: 2000px;
+}
+
+.sideBar {
+    min-width: 205px;
+    /* width: 350px; */
+    height: 100vh;
+
+}
+
+.titlePage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 45px;
+    background-color: #3D90E3;
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+.titlePage p {
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.titlePageIMG {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    margin-right: 10px;
+}
+
+.titlePageIMG img {
+    height: 25px;
+    width: auto;
+    cursor: pointer;
+}
+
+:hover#upperIMG {
+    transform: scale(1.2);
+}
+
+.logo {
+    height: 40px;
+    margin: 5px;
+    margin-left: 10px;
+}
+
+.sideBarContainer {
+    display: flex;
+    flex-direction: column;
+    /* height: calc(100vh - 45px); */
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-color: rgb(243, 243, 243);
+    border-right: 2px solid rgb(196, 195, 195);
+}
+
+.sideBarContent {
+    /* width: 600px; */
+    min-width: 350px;
+    height: 265px;
+}
+
+.sideBarUpper {
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgb(196, 195, 195);
+}
+
+.sideBarUpper p {
+    margin: 0;
+}
+
+.sideBarTags {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    margin-left: 50px;
+    /* padding-right: 30px; */
+    cursor: pointer;
+}
+
+.sideBarTags img {
+    height: 25px;
+    width: auto;
+}
+
+:hover.sideBarTags, :hover.projectNameContainers, :hover.taskDivUpper{
+    background-color: #3d90e36c;
+    /* font-weight: bold; */
+}
+
+/* #selector {
+    background-color: #3d90e36c;
+} */
+
+
+.sideBarLowerContent {
+    /* flex: 1; */
+    height: calc(100vh - 310px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.projects {
+    /* height: 100px; */
+    overflow-y: scroll;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 10px;
+}
+
+.projects p {
+    margin: 0;
+}
+
+.projectNameContainers {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+.addProjects {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.projectIcon {
+    height: 25px;
+    width: auto;
+}
+
+.addProjects img {
+    margin-left: 20px;
+}
+
+.addProjects p {
+    color: #3D90E3;
+    font-size: 20px;
+    margin: auto;
+}
+
+#lightMode {
+    border: 2px solid rgb(243, 243, 243);
+}
+
+#darkMode {
+    border: 2px solid #1d1d1d;
+}
+
+:hover#lightMode {
+    background-color: white;
+    border: 2px solid #3D90E3;
+}
+
+:hover#darkMode {
+    background-color: rgb(0, 0, 0);
+    border: 2px solid #3D90E3;
+}
+
+#darkModeTag {
+    color: white;
+    background-color: rgb(29, 29, 29);
+}
+
+#darkModeInput, #darkModeArea {
+    outline: none !important;
+    color: white;
+    background-color: rgb(49, 49, 49);
+    border:1px solid rgb(0, 0, 0);
+    border-radius: 2px;
+}
+
+#darkModeInput:focus, #darkModeArea:focus{
+    border-color: #3D90E3;
+}
+
+
+[data-id="darkMode"]:hover {
+    background-color: black;
+    color: #3D90E3;
+}
+
+
+
+#darkModeArea {
+
+}
+
+
+/* project tag page onclick even*/
+
+.projectTagPage, .taskTagPage {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000d2;
+}
+
+.projectTagContainer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 400px;
+    min-height: 180px;
+    margin-top: -120px;  /* Negative half of height. */
+    margin-left: -200px;  /* Negative half of width. */
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #3D90E3;
+    border-radius: 5px;
+}
+
+.projectTagUpper, .upperTagContainer {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(196, 195, 195);
+    padding-bottom: 10px;
+}
+
+.newProject {
+    font-size: 20px;
+    font-weight: 200;
+    margin: 0;
+}
+
+.close {
+    height: 20px;
+    width: auto;
+    cursor: pointer;
+}
+
+:hover.close {
+    opacity: 0.7;
+}
+
+.projectInputContainer {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    padding-top: 20px;
+} 
+
+.inputName, .inputDate, .taskInputName{
+    height: 30px;
+    font-size: 15px;
+    padding: 0;
+    padding-left: 10px;
+}
+
+#lightModeInput:focus, #lightModeArea:focus, #darkModeArea:focus {
+    outline: none !important;
+    /* border:2px solid #3D90E3; */
+    border-color: #3D90E3;
+    border-radius: 2px;
+    box-shadow: 0 0 5px #3D90E3;
+}
+
+#lightModeArea, #lightModeInput {
+    border:1px solid grey;
+}
+
+.addProjectBtn, .addTaskBtn {
+    align-self: flex-end;
+    margin-top: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 40px;
+    font-size: 17px;
+    font-weight: 200;
+    color: white;
+    background-color: #3D90E3;
+    border: 2px solid #3D90E3;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+[data-id = "lightMode"]:hover {
+    background-color: white;
+    color: #3D90E3;
+    border: 2px solid #3D90E3;
+}
+
+
+/* main body */
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    flex: 1;
+    min-width: 69%;
+    overflow-y: scroll;
+    min-width: 460px;
+}
+
+.header {
+    padding-left: 50px;
+    padding-top: 10px;
+    height: 90px;
+}
+
+.taskContainer {
+    /* flex: 1; */
+    /* min-width: 700px; */
+    max-height: calc(100vh - 90px - 50px);
+    overflow-y: scroll;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.addTaskContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    cursor: pointer;
+    color: #3D90E3;
+    font-size: 20px;
+    height: 50px;
+}
+
+.addTaskContainer p {
+    margin: 0;
+}
+
+[data-id="lightMode2"]:hover {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #3D90E3;
+}
+
+[data-id="darkMode2"]:hover {
+    background-color: #1d1d1d;
+    border: 2px solid #3D90E3;
+}
+
+[data-id="darkMode2"] {
+    border: 2px solid rgb(49, 49, 49);
+}
+
+
+/* task tag page */
+
+.taskTagContainer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 500px;
+    min-height: 400px;
+    margin-top: -200px;  /* Negative half of height. */
+    margin-left: -250px;  /* Negative half of width. */
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #3D90E3;
+    border-radius: 5px;
+}
+
+.taskTagContainer p {
+    font-size: 20px;
+    font-weight: 200;
+    margin: 0;
+}
+
+/* .lowerTagContainer {
+    display: flex;
+    flex-direction: row;
+} */
+
+.formContainer {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.upperForms {
+    display: flex;
+    gap: 15px;
+}
+
+.taskFormDiv {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.dueDate {
+    display: flex;
+    flex-direction: column;
+}
+
+.taskFormDiv label, .dueDate label {
+    margin-bottom: 5px;
+}
+
+.textArea {
+    min-width: 560px;
+    min-height: 200px;
+}
+
+.textAreaForm {
+    padding-top: 15px;
+}
+
+
+/* task lists */
+
+.taskDivUpper {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.taskDivUpperLeft {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+
+.taskDivUpperLeft img {
+    height: 15px;
+    width: auto;
+    padding-left: 15px;
+}
+
+.taskImgDiv {
+    display: flex;
+    gap: 15px;
+    padding-right: 15px;
+    align-items: center;
+    
+}
+
+.taskImg {
+    height: 22px;
+    width: auto;
+    cursor: pointer;
+}
+
+.taskAreaDiv {
+    margin-bottom: 30px;
+}
+
+
+
+.taskDivLower {
+    border-bottom: 2px solid rgb(196, 195, 195);
+    margin-bottom: 20px;
+    padding-left: 45px;
+    display: flex;
+    flex-direction: column;
+}
+/* 
+#taskAreaP {
+    padding-bottom: 15px;
+    display: none;
+}
+
+#dueDateDiv {
+    display: none;
+} */
+
+
+
+.deleteRestoreDiv {
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+
+:hover.taskImg {
+    transform: scale(1.2);
+}
+
+
+
+
+
+
+/* SCROLL BAR */
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  /* Track */
+  /* ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  } */
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #3D90E3; 
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

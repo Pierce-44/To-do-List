@@ -122,10 +122,18 @@ body {
     text-align: center;
     cursor: pointer;
     padding-top: 10px;
+    max-width: 400px;
 }
 
 .projects p {
     margin: 0;
+}
+
+.deleteProjectImg {
+    margin-left: auto;
+    height: 20px;
+    width: auto;
+    padding-right: 15px;
 }
 
 .projectNameContainers {
@@ -476,6 +484,7 @@ body {
     border-bottom: 2px solid rgb(196, 195, 195);
     margin-bottom: 20px;
     padding-left: 45px;
+    padding-right: 15px;
     display: flex;
     flex-direction: column;
 }
@@ -498,11 +507,18 @@ body {
 }
 
 
-:hover.taskImg {
+:hover.taskImg, :hover.editImg {
     transform: scale(1.2);
 }
 
-
+.editImg {
+    height: 20px;
+    width: auto;
+    align-self: center;
+    /* margin-left: auto; */
+    /* padding-right: 15px; */
+    cursor: pointer;
+}
 
 
 

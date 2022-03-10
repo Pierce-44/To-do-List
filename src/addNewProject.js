@@ -47,6 +47,20 @@ function addNewProject() {
 
             // add the updated project array to localStorage
             JSON.stringify(localStorage.setItem('projects', projectArray))
+
+            // global project count
+            var globalProjectCount = localStorage.getItem('globalProjectCount');
+
+            if (globalProjectCount === null) {
+                localStorage.setItem('globalProjectCount', 1)
+            }
+            if (globalProjectCount !== null) {
+                localStorage.setItem('globalProjectCount', ++globalProjectCount)
+            }
+
+            var globalProjectUpdate = localStorage.getItem('globalProjectCount');
+
+            localStorage.setItem('project' + globalProjectUpdate , projectName);
         }
     })();
 }

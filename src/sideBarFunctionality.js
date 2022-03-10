@@ -43,7 +43,7 @@ function displayTodayTasks() {
 
         const helper = dom.sideBarDom(i);
 
-        if (helper.deleteCheck === "deleted" || helper.completedCheck === "completed") {
+        if (helper.deleteCheck === "deleted" || helper.completedCheck === "completed" || helper.deleteCheck3 === "X") {
             
         } else if (helper.taskDate === today) {
             
@@ -82,7 +82,7 @@ function displayAllTasks() {
 
         const helper = dom.sideBarDom(i);
 
-        if (helper.deleteCheck === "deleted" || helper.completedCheck === "completed") {
+        if (helper.deleteCheck === "deleted" || helper.completedCheck === "completed" || helper.deleteCheck3 === "X") {
             
         } else {
         // render the tasks HTML
@@ -101,11 +101,6 @@ function displayAllTasks() {
 
         }
     }
-    
-    // // count how many tasks
-    // var taskCount = document.querySelector('.taskContainer').childElementCount;
-
-
 
     // show Task event listener
     var taskDivUpper = document.querySelectorAll('.taskDivUpperLeft');
@@ -126,7 +121,7 @@ function displayDeletedTasks() {
 
         const helper = dom.sideBarDom(i);
 
-        if (helper.deleteCheck === "deleted" && helper.deleteCheck2 !== "X") {
+        if (helper.deleteCheck === "deleted" && helper.deleteCheck2 !== "X" && helper.deleteCheck3 !== "X") {
             // render the tasks HTML
             dom.renderTasksDom(helper.taskNameHTML, i, helper.taskAreaHTML, helper.taskDate );
 
@@ -164,7 +159,7 @@ function displayCompletedTasks() {
 
         const helper = dom.sideBarDom(i);
 
-        if (helper.completedCheck === "completed" && helper.deleteCheck2 !== "X") {
+        if (helper.completedCheck === "completed" && helper.deleteCheck2 !== "X" && helper.deleteCheck3 !== "X") {
             // render the tasks HTML
             dom.renderTasksDom(helper.taskNameHTML, i, helper.taskAreaHTML, helper.taskDate );
 
@@ -202,7 +197,7 @@ function displayFlaggedTasks() {
 
         const helper = dom.sideBarDom(i);
 
-        if (helper.flaggedCheck === "flagged" && helper.deleteCheck !== "deleted" && helper.completedCheck !== "completed") {
+        if (helper.flaggedCheck === "flagged" && helper.deleteCheck !== "deleted" && helper.completedCheck !== "completed" & helper.deleteCheck3 !== "X") {
             // render the tasks HTML
             dom.renderTasksDom(helper.taskNameHTML, i, helper.taskAreaHTML, helper.taskDate );
 

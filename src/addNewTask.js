@@ -8,13 +8,11 @@ function createNewTask() {
     dom.taskContainerTag.addEventListener('click', renderTaskTag)
 
 
-
     function renderTaskTag(e) {
         
-        const projectID = e.target.id
+        const editTaskCheck = e.target.id;
         
-
-        dom.taskTagItemsDOM();
+        dom.taskTagItemsDOM(editTaskCheck);
 
         // add new task to localStorage event listener 
         dom.btn1.addEventListener('click', addNewTask)
@@ -103,4 +101,4 @@ function addNewTask() {
 }
 
 
-export { createNewTask }
+export { createNewTask, closeTaskTag}

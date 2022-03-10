@@ -35,7 +35,11 @@ function displayTargettedProject() {
         dom.addTaskContainer.style.display = "flex";
         highlightSelectedProject(e);
         //set active project folder
-        localStorage.setItem('activeProject', e.target.id)
+        if (localStorage.getItem('activeProject') === "Removed") {
+            
+        } else {
+            localStorage.setItem('activeProject', e.target.id)
+        }
     }
 
 }

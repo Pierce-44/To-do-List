@@ -109,7 +109,7 @@ export function projectTagItemsDOM() {
     }
 };
 
-export function taskTagItemsDOM() {
+export function taskTagItemsDOM(editTaskCheck) {
     body.appendChild(div5).className = "taskTagPage";
     div5.appendChild(div6).className = "taskTagContainer";
     div6.appendChild(div7).className = "upperTagContainer";
@@ -135,7 +135,11 @@ export function taskTagItemsDOM() {
     label2.innerHTML = "Due Date";
     input2.type = "date";
     img2.src = "images/close.png";
-    btn1.innerHTML = "Add Task";
+    if (editTaskCheck.replace(/[0-9]/g, '') === 'editID') {
+        btn1.innerHTML = "Save Changes";
+    } else {
+        btn1.innerHTML = "Add Task";
+    }
     btn1.type = "submit";
     input1.required = true;
     input2.required = true;
@@ -191,6 +195,7 @@ export function renderTasksDom(taskNameHTML, i, taskAreaHTML, taskDate ) {
     var img1 = document.createElement('img');
     var img2 = document.createElement('img');
     var img3 = document.createElement('img');
+    var img4 = document.createElement('img');
     
     
 
@@ -206,6 +211,7 @@ export function renderTasksDom(taskNameHTML, i, taskAreaHTML, taskDate ) {
     div2.appendChild(img).className = "taskImg";
     div2.appendChild(img1).className = "taskImg";
     div2.appendChild(img2).className = "taskImg";
+    div5.appendChild(img4).className = "editImg";
 
 
     div1.className = "taskDivUpper";
@@ -233,6 +239,9 @@ export function renderTasksDom(taskNameHTML, i, taskAreaHTML, taskDate ) {
     img2.id = "ID" + i;
     img2.title = "Delete Task"
     img3.src = "images/checkbox-multiple-blank-circle.png"
+    img4.src = "images/file-edit.png";
+    img4.id = "editID" + i;
+    img4.title = "Edit Task";
     p1.innerHTML = "<b>Due Date:</b> " + taskDate;
 
     if (localStorage.getItem(projectName + "Flagged" + i) === "flagged") {
@@ -257,11 +266,12 @@ export function sideBarDom(i) {
     var taskDate = localStorage.getItem('globalTaskDate' + i).substring(1);
     var deleteCheck = localStorage.getItem('globalDeleted' + i);
     var deleteCheck2 = localStorage.getItem('permanentlyDelete' + i);
+    var deleteCheck3 = localStorage.getItem('globalTaskName' + i);  
     var completedCheck = localStorage.getItem('globalCompleted' + i);
     var flaggedCheck = localStorage.getItem('globalFlagged' + i);
 
 
-    return {taskNameHTML, taskAreaHTML, taskDate, deleteCheck, completedCheck, flaggedCheck, deleteCheck2}
+    return {taskNameHTML, taskAreaHTML, taskDate, deleteCheck, completedCheck, flaggedCheck, deleteCheck2, deleteCheck3}
 }
 
 
@@ -314,4 +324,29 @@ export function goToProjectImg(i) {
     img.className = "taskImg";
     img.id = "restore" + i ;
     img.title = "Go To Project";
+}
+
+export function renderProjectNameTag (projectName, deleteProject, i ) {
+    const text = document.createElement('p');
+    const div = document.createElement('div');
+    const img = document.createElement('img');
+    const img2 = document.createElement('img');
+    const addProject = document.querySelector('.projects');
+
+    addProject.appendChild(div).className = "projectNameContainers";
+    div.id = projectName;
+    div.appendChild(img).src = "images/checkbox-multiple-blank-circle-outline.png"
+    img.className = "projectIcon";
+    img.id = projectName;
+    div.appendChild(text).innerHTML = projectName;
+    text.id = projectName;
+    text.className = "projectTextName";
+    div.appendChild(img2).src = "images/close-project.png";
+    img2.id = projectName;
+    img2.className = "deleteProjectImg";
+    img2.setAttribute('data-id', i);
+
+    // event listner to delete project and its content
+    img2.addEventListener('click', deleteProject)
+
 }

@@ -1,5 +1,5 @@
 import * as dom from './DOM';
-import { deleteTask, completeTask, flagTask } from './deleteTask';
+import { deleteTask, completeTask, flagTask, editTask } from './deleteTask';
 
 
 function addExistingTasks() {
@@ -18,7 +18,6 @@ function addExistingTasks() {
 
 
 function renderTasks() {
-    console.log("fire")
 
     // clear tasks so that they can be populated with the selected projects tasks
     dom.clearTasksDom();
@@ -34,8 +33,9 @@ function renderTasks() {
         var taskDate = localStorage.getItem(ID + 'taskDate' + i).substring(1);
         var deleteCheck = localStorage.getItem(ID + 'Deleted' + i);
         var completedCheck = localStorage.getItem(ID + 'Completed' + i);
+        var deleteCheck2 = localStorage.getItem(ID + 'TaskPerge' + i);        
 
-        if (deleteCheck === "deleted" || completedCheck === "completed") {
+        if (deleteCheck === "deleted" || completedCheck === "completed" || deleteCheck2 === "X") {
             
         } else {
         // render the tasks HTML
@@ -52,8 +52,12 @@ function renderTasks() {
         // add flagged event listner to task HTML
         var flaggedImg = document.getElementById("flaggedID" + i);
         flaggedImg.addEventListener('click', flagTask);
-        }
+        
+        // add edit event listner to task HTML
+        var editImg = document.getElementById("editID" + i);
+        editImg.addEventListener('click', editTask);
 
+        }
     }
     // show Task event listener
     var taskDivUpper = document.querySelectorAll('.taskDivUpperLeft');
@@ -77,7 +81,8 @@ function displayTextArea(e) {
     if (taskAreaP.style.display === "none") {
 
         taskAreaP.style.display = "initial";
-        dueDateDiv.style.display = "initial";
+        dueDateDiv.style.display = "Flex";
+        dueDateDiv.style.justifyContent = "space-between";
 
     } 
     else {

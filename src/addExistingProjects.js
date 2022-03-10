@@ -1,10 +1,8 @@
 import * as dom from './DOM';
 import { displayTargettedProject }   from './displayProject';
+import { deleteProject } from './deleteTask';
 
 function addExistingProjects() {
-
-    // set "today" tag to be the default folder on load
-    // dom.Today.style.backgroundColor = "#3d90e36c";
 
     // this checks local storage for existing projects
     var array = [localStorage.getItem('projects')];
@@ -21,19 +19,16 @@ function addExistingProjects() {
 
         var projectName = projectArrayCopy.shift(1);
 
-        // DOM
-        const text = document.createElement('p');
-        const div = document.createElement('div');
-        const img = document.createElement('img');
+        // const projectCount = localStorage.getItem(globalProjectCount)
+        const projectDeleteCheck = localStorage.getItem("project" + i)
 
-        dom.addProject.appendChild(div).className = "projectNameContainers";
-        div.id = projectName;
-        div.appendChild(img).src = "images/checkbox-multiple-blank-circle-outline.png"
-        img.className = "projectIcon";
-        img.id = projectName;
-        div.appendChild(text).innerHTML = projectName;
-        text.id = projectName;
-        text.className = "projectTextName";
+        if (projectDeleteCheck === "X") {
+
+        } else {
+
+            dom.renderProjectNameTag(projectName, deleteProject, i);
+
+        }
 
     }
 
